@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luvistra Travels — Flights, Hotels, Visa & Packages</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+:root {
+  --ink: #07172d;
+  --ink-2: #0d274d;
+  --panel: #0a1f3d;
+  --gold: #f7b733;
+  --gold-2: #ffd27a;
+  --text: #e8edf5;
+  --muted: #a9b6c9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+.brand-font {
+  font-family: "Fraunces", serif;
+}
+
+body {
+  background: var(--ink);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+/* NAVBAR */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  width: 100%;
+  padding: 18px 6%;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(5, 15, 35, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  transition: 0.3s;
+}
+
+.logo {
+  color: var(--gold);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: #fff;
+  font-weight: 500;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+}
+
+nav a {
+  padding: 8px 14px;
+  color: var(--muted);
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+nav a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn {
+  padding: 12px 24px;
+  color: #111;
+  background: var(--gold);
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn:hover {
+  background: var(--gold-2);
+  transform: translateY(-2px);
+}
+
+.menu-toggle {
+  display: none;
+  color: #fff;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  display: flex;
+  min-height: 100vh;
+  padding: 140px 6% 220px;
+  align-items: center;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 23, 45, 0.55) 0%,
+      rgba(7, 23, 45, 0.85) 100%
+    ),
+    url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2000");
+  background-position: center;
+  background-size: cover;
+}
+
+.eyebrow {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  width: 30px;
+  height: 1px;
+  background: var(--gold);
+  content: "";
+}
+
+h1 {
+  max-width: 750px;
+  margin-bottom: 22px;
+  font-size: clamp(36px, 6vw, 68px);
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.gold {
+  color: var(--gold);
+}
+
+.hero p {
+  max-width: 520px;
+  margin-bottom: 34px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.outline {
+  padding: 12px 24px;
+  color: #fff;
+  border: 1.5px solid var(--gold);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.outline:hover {
+  color: #111;
+  background: var(--gold);
+}
+
+/* SEARCH PANEL */
+
+.search-wrap {
+  position: relative;
+  z-index: 10;
+  margin-top: -130px;
+  padding: 0 6%;
+}
+
+.search {
+  max-width: 1180px;
+  margin: auto;
+  padding: 32px;
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tab {
+  display: flex;
+  padding: 10px 18px;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.tab.active {
+  color: #111;
+  background: var(--gold);
+}
+
+.tab:not(.active):hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) auto;
+  align-items: end;
+  gap: 18px;
+}
+
+.box {
+  padding: 14px 16px;
+  background: var(--ink-2);
+  border-radius: 10px;
+}
+
+.box label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.box input,
+.box select {
+  width: 100%;
+  color: #fff;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.box input::placeholder {
+  color: #6b7c94;
+}
+
+.box select option {
+  background: var(--ink-2);
+}
+
+.searchbtn {
+  display: flex;
+  padding: 14px 30px;
+  align-items: center;
+  gap: 8px;
+  color: #111;
+  background: var(--gold);
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.searchbtn:hover {
+  background: var(--gold-2);
+  transform: scale(1.02);
+}
+
+.form-panel {
+  display: none;
+}
+
+.form-panel.active {
+  display: grid;
+}
+
+/* DESTINATIONS */
+
+.section {
+  padding: 120px 6% 60px;
+}
+
+.section-head {
+  max-width: 600px;
+  margin-bottom: 50px;
+}
+
+.section-head .eyebrow {
+  margin-bottom: 14px;
+}
+
+.section-head h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.dest-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.dest-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+}
+
+.dest-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.dest-card:hover img {
+  transform: scale(1.08);
+}
+
+.dest-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  padding: 22px;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(0, 0, 0, 0.85)
+  );
+}
+
+.dest-overlay h3 {
+  margin-bottom: 4px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.dest-overlay p {
+  color: var(--gold-2);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* WHY US */
+
+.why {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.why-card {
+  padding: 32px 26px;
+  background: var(--ink-2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+}
+
+.why-card i {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--gold);
+  font-size: 26px;
+}
+
+.why-card h3 {
+  margin-bottom: 10px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.why-card p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* CTA */
+
+.cta {
+  display: flex;
+  margin: 120px 6% 0;
+  padding: 70px 6%;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  background: linear-gradient(120deg, #0d274d, #122f5c);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+}
+
+.cta h2 {
+  max-width: 480px;
+  font-size: clamp(24px, 3.4vw, 34px);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.cta p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* FOOTER */
+
+footer {
+  margin-top: 100px;
+  padding: 60px 6% 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.foot-grid {
+  display: grid;
+  margin-bottom: 40px;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.foot-grid h4 {
+  margin-bottom: 16px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.foot-grid p,
+.foot-grid a {
+  display: block;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+  text-decoration: none;
+}
+
+.foot-grid a:hover {
+  color: var(--gold);
+}
+
+.foot-bottom {
+  display: flex;
+  padding-top: 24px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #6b7c94;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 13px;
+}
+
+.socials {
+  display: flex;
+  gap: 14px;
+}
+
+.socials a {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink-2);
+  border-radius: 50%;
+}
+
+.socials a:hover {
+  color: #111;
+  background: var(--gold);
+}
+
+/* MOBILE */
+
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .searchbtn {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+
+  .dest-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .why {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .foot-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    display: none;
+    width: 100%;
+    padding: 16px 6%;
+    flex-direction: column;
+    gap: 4px;
+    background: var(--ink);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav a {
+    padding: 14px 10px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .right > .btn {
+    display: none;
+  }
+
+  .hero {
+    padding: 130px 6% 200px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search {
+    width: 100%;
+    padding: 22px;
+  }
+
+  .dest-grid,
+  .why,
+  .foot-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">LUVISTRA <span>TRAVELS</span></div>
+
+  <nav id="nav">
+    <a href="#">Home</a>
+    <a href="#flights">Flights</a>
+    <a href="#destinations">Destinations</a>
+    <a href="#why">Why us</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="right">
+    <a href="#contact" class="btn">Enquire now</a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="content">
+      <div class="eyebrow">Explore the world with us</div>
+
+      <h1>Your journey, <span class="gold">our priority</span></h1>
+
+      <p>
+        Best flight deals, visa assistance, holiday packages and hotel
+        bookings — all in one place.
+      </p>
+
+      <div class="buttons">
+        <a href="#flights" class="btn">Book flights</a>
+        <a href="#destinations" class="outline">Explore packages</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="search-wrap" id="flights">
+    <div class="search">
+      <div class="tabs" id="tabs">
+        <div class="tab active" data-panel="flightsPanel">
+          <i class="fas fa-plane"></i> Flights
+        </div>
+
+        <div class="tab" data-panel="hotelsPanel">
+          <i class="fas fa-hotel"></i> Hotels
+        </div>
+
+        <div class="tab" data-panel="packagesPanel">
+          <i class="fas fa-suitcase-rolling"></i> Holiday packages
+        </div>
+
+        <div class="tab" data-panel="visaPanel">
+          <i class="fas fa-passport"></i> Visa services
+        </div>
+      </div>
+
+      <div class="grid form-panel active" id="flightsPanel">
+        <div class="box">
+          <label for="departure-city">From</label>
+          <input
+            id="departure-city"
+            type="text"
+            placeholder="Departure city"
+          >
+        </div>
+
+        <div class="box">
+          <label for="destination-city">To</label>
+          <input
+            id="destination-city"
+            type="text"
+            placeholder="Destination"
+          >
+        </div>
+
+        <div class="box">
+          <label for="departure-date">Departure</label>
+          <input id="departure-date" type="date">
+        </div>
+
+        <div class="box">
+          <label for="passengers">Passengers</label>
+          <select id="passengers">
+            <option>1 Adult</option>
+            <option>2 Adults</option>
+            <option>3 Adults</option>
+            <option>Family</option>
+          </select>
+        </div>
+
+        <button class="searchbtn" type="button">
+          <i class="fas fa-search"></i> Search flights
+        </button>
+      </div>
+
+      <div class="grid form-panel" id="hotelsPanel">
+        <div class="box">
+          <label for="hotel-city">City</label>
+          <input
+            id="hotel-city"
+            type="text"
+            placeholder="Where are you going?"
+          >
+        </div>
+
+        <div class="box">
+          <label for="check-in">Check-in</label>
+          <input id="check-in" type="date">
+        </div>
+
+        <div class="box">
+          <label for="check-out">Check-out</label>
+          <input id="check-out" type="date">
+        </div>
+
+        <div class="box">
+          <label for="hotel-guests">Guests</label>
+          <select id="hotel-guests">
+            <option>1 Guest</option>
+            <option>2 Guests</option>
+            <option>Family room</option>
+          </select>
+        </div>
+
+        <button class="searchbtn" type="button">
+          <i class="fas fa-search"></i> Search hotels
+        </button>
+      </div>
+
+      <div class="grid form-panel" id="packagesPanel">
+        <div class="box">
+          <label for="package-destination">Destination</label>
+          <input
+            id="package-destination"
+            type="text"
+            placeholder="Bali, Dubai, Maldives..."
+          >
+        </div>
+
+        <div class="box">
+          <label for="package-duration">Duration</label>
+          <select id="package-duration">
+            <option>3–5 days</option>
+            <option>6–9 days</option>
+            <option>10+ days</option>
+          </select>
+        </div>
+
+        <div class="box">
+          <label for="travel-month">Travel month</label>
+          <input id="travel-month" type="month">
+        </div>
+
+        <div class="box">
+          <label for="travellers">Travellers</label>
+          <select id="travellers">
+            <option>Couple</option>
+            <option>Family</option>
+            <option>Group</option>
+          </select>
+        </div>
+
+        <button class="searchbtn" type="button">
+          <i class="fas fa-search"></i> Find packages
+        </button>
+      </div>
+
+      <div class="grid form-panel" id="visaPanel">
+        <div class="box">
+          <label for="visa-country">Destination country</label>
+          <input
+            id="visa-country"
+            type="text"
+            placeholder="Where do you need a visa?"
+          >
+        </div>
+
+        <div class="box">
+          <label for="visa-type">Visa type</label>
+          <select id="visa-type">
+            <option>Tourist</option>
+            <option>Business</option>
+            <option>Student</option>
+          </select>
+        </div>
+
+        <div class="box">
+          <label for="visa-travel-date">Travel date</label>
+          <input id="visa-travel-date" type="date">
+        </div>
+
+        <div class="box">
+          <label for="applicants">Applicants</label>
+          <select id="applicants">
+            <option>1</option>
+            <option>2</option>
+            <option>3+</option>
+          </select>
+        </div>
+
+        <button class="searchbtn" type="button">
+          <i class="fas fa-search"></i> Check requirements
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" id="destinations">
+    <div class="section-head">
+      <div class="eyebrow">Popular right now</div>
+      <h2>Where travellers are heading this season</h2>
+    </div>
+
+    <div class="dest-grid">
+      <div class="dest-card">
+        <img
+          src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=800"
+          alt="Temple surrounded by greenery in Bali"
+        >
+        <div class="dest-overlay">
+          <h3>Bali</h3>
+          <p>From ₹28,999</p>
+        </div>
+      </div>
+
+      <div class="dest-card">
+        <img
+          src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800"
+          alt="Dubai skyline"
+        >
+        <div class="dest-overlay">
+          <h3>Dubai</h3>
+          <p>From ₹22,499</p>
+        </div>
+      </div>
+
+      <div class="dest-card">
+        <img
+          src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=800"
+          alt="Tropical beach in the Maldives"
+        >
+        <div class="dest-overlay">
+          <h3>Maldives</h3>
+          <p>From ₹35,999</p>
+        </div>
+      </div>
+
+      <div class="dest-card">
+        <img
+          src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=800"
+          alt="Scenic European destination"
+        >
+        <div class="dest-overlay">
+          <h3>Switzerland</h3>
+          <p>From ₹64,999</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="why">
+    <div class="section-head">
+      <div class="eyebrow">Why Luvistra</div>
+      <h2>Everything you need, handled by one team</h2>
+    </div>
+
+    <div class="why">
+      <div class="why-card">
+        <i class="fas fa-tags"></i>
+        <h3>Best price guarantee</h3>
+        <p>We match or beat any comparable fare you find elsewhere.</p>
+      </div>
+
+      <div class="why-card">
+        <i class="fas fa-headset"></i>
+        <h3>24/7 support</h3>
+        <p>Real people on call before, during and after your trip.</p>
+      </div>
+
+      <div class="why-card">
+        <i class="fas fa-passport"></i>
+        <h3>Visa expertise</h3>
+        <p>
+          Document checklists and application support for 90+ countries.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <i class="fas fa-route"></i>
+        <h3>Custom itineraries</h3>
+        <p>Packages tailored to your pace, budget and interests.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div>
+      <h2>Ready to plan your next trip?</h2>
+      <p>
+        Tell us where you want to go — we'll handle flights, stay and visa.
+      </p>
+    </div>
+
+    <a
+      href="https://wa.me/918075818167"
+      class="btn"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Talk to an expert
+    </a>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="logo" style="margin-bottom: 14px;">
+        LUVISTRA <span>TRAVELS</span>
+      </div>
+
+      <p style="max-width: 280px;">
+        Flight bookings, hotels, holiday packages and visa assistance —
+        planned by travel experts who've been there.
+      </p>
+    </div>
+
+    <div>
+      <h4>Company</h4>
+      <a href="#">About us</a>
+      <a href="#">Careers</a>
+      <a href="#">Press</a>
+    </div>
+
+    <div>
+      <h4>Services</h4>
+      <a href="#flights">Flights</a>
+      <a href="#flights">Hotels</a>
+      <a href="#flights">Visa</a>
+      <a href="#destinations">Packages</a>
+    </div>
+
+    <div>
+      <h4>Get in touch</h4>
+
+      <a href="tel:+918075818167">
+        <i class="fas fa-phone" style="margin-right: 8px;"></i>
+        +91 80758 18167
+      </a>
+
+      <a href="mailto:hello@luvistra.com">
+        <i class="fas fa-envelope" style="margin-right: 8px;"></i>
+        hello@luvistra.com
+      </a>
+    </div>
+  </div>
+
+  <div class="foot-bottom">
+    <span>© 2026 Luvistra Travels. All rights reserved.</span>
+
+    <div class="socials">
+      <a href="#" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a href="#" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+
+      <a href="#" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const tabs = document.querySelectorAll(".tab");
+const panels = document.querySelectorAll(".form-panel");
+const menuButton = document.querySelector(".menu-toggle");
+const navigation = document.getElementById("nav");
+
+tabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    tabs.forEach((item) => item.classList.remove("active"));
+    panels.forEach((panel) => panel.classList.remove("active"));
+
+    tab.classList.add("active");
+    document.getElementById(tab.dataset.panel).classList.add("active");
+  });
+});
+
+menuButton.addEventListener("click", () => {
+  const isOpen = navigation.classList.toggle("open");
+  menuButton.setAttribute("aria-expanded", String(isOpen));
+});
+
+navigation.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    navigation.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+  });
+});
+</script>
+
+</body>
+</html>
